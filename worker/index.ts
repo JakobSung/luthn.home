@@ -19,6 +19,9 @@ interface ExecutionContext {
   passThroughOnException(): void;
 }
 
+const naverVerificationPath = "/naver1e03e282ab474010f792b7ec4ea23267.html";
+const naverVerificationContent = "naver-site-verification: naver1e03e282ab474010f792b7ec4ea23267.html";
+
 // Image security config. SVG sources with .svg extension auto-skip the
 // optimization endpoint on the client side (served directly, no proxy).
 // To route SVGs through the optimizer (with security headers), set
@@ -28,6 +31,15 @@ interface ExecutionContext {
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.pathname === naverVerificationPath) {
+      return new Response(naverVerificationContent, {
+        headers: {
+          "cache-control": "public, max-age=300",
+          "content-type": "text/html; charset=utf-8",
+        },
+      });
+    }
 
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];

@@ -9,7 +9,10 @@
   "assets": {
     "directory": "dist/client",
     "not_found_handling": "none",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/naver1e03e282ab474010f792b7ec4ea23267.html"
+    ]
   },
   "images": {
     "binding": "IMAGES"
