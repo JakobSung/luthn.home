@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" role="img" aria-labelledby="title desc">
+  <title id="title">Luthn monochrome white symbol</title>
+  <desc id="desc">A white geometric Luthn symbol with reduced upper and lower openings.</desc>
+  <!-- Original opening: approximately 154 units. Revised opening: 124 units. -->
+  <g fill="#ffffff">
+    <path d="M 565 326 L 327 553 L 327 701 L 565 929 L 565 739 L 442 627 L 565 515 Z"/>
+    <path d="M 689 326 L 927 553 L 927 701 L 689 929 L 689 739 L 812 627 L 689 515 Z"/>
+    <path d="M 627 531 L 723 627 L 627 723 L 531 627 Z"/>
+  </g>
+</svg>

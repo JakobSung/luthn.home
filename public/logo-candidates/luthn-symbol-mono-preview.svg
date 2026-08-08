@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" role="img" aria-labelledby="title desc">
+  <title id="title">Luthn monochrome symbol preview</title>
+  <desc id="desc">Black and white monochrome Luthn symbols displayed side by side.</desc>
+  <rect width="800" height="800" fill="#ffffff"/>
+  <rect x="800" width="800" height="800" fill="#000000"/>
+  <g transform="translate(52 52) scale(.555)" fill="#000000">
+    <path d="M 565 326 L 327 553 L 327 701 L 565 929 L 565 739 L 442 627 L 565 515 Z"/>
+    <path d="M 689 326 L 927 553 L 927 701 L 689 929 L 689 739 L 812 627 L 689 515 Z"/>
+    <path d="M 627 531 L 723 627 L 627 723 L 531 627 Z"/>
+  </g>
+  <g transform="translate(852 52) scale(.555)" fill="#ffffff">
+    <path d="M 565 326 L 327 553 L 327 701 L 565 929 L 565 739 L 442 627 L 565 515 Z"/>
+    <path d="M 689 326 L 927 553 L 927 701 L 689 929 L 689 739 L 812 627 L 689 515 Z"/>
+    <path d="M 627 531 L 723 627 L 627 723 L 531 627 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" role="img" aria-labelledby="title desc">
+  <title id="title">Luthn geometric symbol</title>
+  <desc id="desc">A symmetric three-part symbol built on a consistent geometric grid.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe08a"/>
+      <stop offset="0.52" stop-color="#f2c45d"/>
+      <stop offset="1" stop-color="#d79b2f"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9a12"/>
+      <stop offset="1" stop-color="#ef5a00"/>
+    </linearGradient>
+  </defs>
+
+  <!--
+    Geometry grid:
+    - side-object width and open-end module: 156 units
+    - center: 627, 627
+    The side-object silhouette follows the approved reference shape.
+    The gold diagonal bands and both open end gaps are 156 units.
+    The center diamond side is 156 units, giving it a 220.617316-unit span.
+    The four diagonal inner spaces are 110.308658 units.
+  -->
+  <path
+    fill="url(#gold)"
+    d="M 549 218.074026
+       L 281 486.074026
+       L 281 767.925974
+       L 549 1035.925974
+       L 549 815.308658
+       L 360.691342 627
+       L 549 438.691342
+       Z"/>
+
+  <path
+    fill="url(#gold)"
+    d="M 705 218.074026
+       L 973 486.074026
+       L 973 767.925974
+       L 705 1035.925974
+       L 705 815.308658
+       L 893.308658 627
+       L 705 438.691342
+       Z"/>
+
+  <path
+    fill="url(#orange)"
+    d="M 627 516.691342
+       L 737.308658 627
+       L 627 737.308658
+       L 516.691342 627
+       Z"/>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1910 600" role="img" aria-labelledby="title desc">
+  <title id="title">Luthn balanced angular wordmark</title>
+  <desc id="desc">A geometric Luthn wordmark with a shared lowercase height system and uniform letter spacing.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8d96f"/>
+      <stop offset="0.55" stop-color="#e9bd48"/>
+      <stop offset="1" stop-color="#d49a2e"/>
+    </linearGradient>
+  </defs>
+
+  <!--
+    Exact geometry:
+    - ascender top: 100
+    - lowercase dividing line: 300
+    - baseline: 500
+    - t/h upper region: 200
+    - t/h lower region: 200
+    - u/n body height: 200
+    - optical gap between every adjacent letter: 40
+  -->
+
+  <!-- L -->
+  <path fill="url(#gold)" d="M 170 100 L 170 410 L 315 410 L 360 500 L 80 500 L 80 145 Z"/>
+
+  <!-- u -->
+  <path fill="url(#gold)" d="M 400 300 L 490 300 L 490 410 L 535 455 L 650 455 L 695 410 L 695 300 L 785 300 L 785 420 L 705 500 L 480 500 L 400 420 Z"/>
+
+  <!-- t: crossbar is centered on y=300 -->
+  <path fill="url(#gold)" d="M 915 100 L 915 255 L 1060 255 L 1015 345 L 915 345 L 915 410 L 960 455 L 1045 455 L 1090 500 L 870 500 L 825 455 L 825 145 Z"/>
+
+  <!-- h: shoulder is centered on y=300 -->
+  <path fill="url(#gold)" d="M 1220 100 L 1220 255 L 1390 255 L 1470 335 L 1470 500 L 1380 500 L 1380 365 L 1345 345 L 1220 345 L 1220 500 L 1130 500 L 1130 145 Z"/>
+
+  <!-- n -->
+  <path fill="url(#gold)" d="M 1510 300 L 1740 300 L 1830 390 L 1830 500 L 1740 500 L 1740 410 L 1705 390 L 1600 390 L 1600 500 L 1510 500 Z"/>
+</svg>
