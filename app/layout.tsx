@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { languageAlternates, memoryImageUrl, siteUrl } from "./site-config";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,12 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Luthn — Safe memory for AI agents",
+    default: "Luthn — Safe Context for Agents",
     template: "%s | Luthn",
   },
   description:
-    "Luthn is a self-hosted long-term memory and safe context layer for AI agents. Keep sensitive raw context behind a local boundary and return only approved context.",
+    "A shared memory layer for agents, with audited context and a separate encrypted vault for sensitive data.",
   keywords: [
     "Luthn",
     "AI agent memory",
@@ -33,30 +35,30 @@ export const metadata: Metadata = {
   creator: "awes",
   publisher: "awes",
   category: "technology",
-  alternates: { canonical: "/" },
+  alternates: { canonical: siteUrl, languages: languageAlternates },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
-    title: "Luthn — Safe memory for AI agents",
+    url: siteUrl,
+    title: "Luthn — Safe Context for Agents",
     description:
-      "Give your agents a memory. Keep private data behind a clear local boundary.",
+      "Shared memory for agents, with audited context and a separate encrypted vault for sensitive data.",
     siteName: "Luthn",
     locale: "en_US",
     images: [
       {
-        url: "/luthn-sanctum-hero-redrawn.png",
-        width: 1717,
-        height: 916,
-        alt: "Luthn protected memory object in a dark space",
+        url: memoryImageUrl,
+        width: 1672,
+        height: 941,
+        alt: "Luthn memory architecture with shared agents, audit, and a separate vault",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luthn — Safe memory for AI agents",
-    description:
-      "Long-term memory for agents, with sensitive data kept behind a local boundary.",
-    images: ["/luthn-sanctum-hero-redrawn.png"],
+    title: "Luthn — Safe Context for Agents",
+    description: "Shared memory for agents, with sensitive data kept in a separate encrypted vault.",
+    images: [memoryImageUrl],
   },
   icons: {
     icon: "/luthn-object-logo.png",
