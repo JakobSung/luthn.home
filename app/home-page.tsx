@@ -107,7 +107,7 @@ export default function HomePage({ initialLocale, canonicalPath }: HomePageProps
   }, [locale]);
 
   const chooseLocale = (nextLocale: Locale) => {
-    window.location.assign(nextLocale === "en" ? "/en" : "/ko");
+    window.location.assign(nextLocale === "en" ? "/" : "/ko");
   };
 
   return (
