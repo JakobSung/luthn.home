@@ -11,6 +11,11 @@
     "not_found_handling": "none",
     "binding": "ASSETS",
     "run_worker_first": [
+      "/",
+      "/en",
+      "/en/*",
+      "/ko",
+      "/ko/*",
       "/naver1e03e282ab474010f792b7ec4ea23267.html"
     ]
   },
