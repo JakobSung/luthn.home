@@ -35,6 +35,12 @@ test("server-renders the default Luthn landing page with SEO links", async () =>
   assert.match(html, /EXTERNAL SOURCES/);
   assert.match(html, /AUDIT/);
   assert.match(html, /VAULT/);
+  assert.match(html, /QUICK START/);
+  assert.match(html, /quick-start-section/);
+  assert.match(html, /curl -fsSL https:\/\/raw\.githubusercontent\.com\/JakobSung\/Luthn\/main\/scripts\/install\.sh \| bash -s -- --channel stable --connect-codex/);
+  assert.match(html, /luthn status/);
+  assert.match(html, /luthn connection status codex/);
+  assert.match(html, /WINDOWS POWERSHELL/);
   assert.match(html, /contact@awes\.it\.kr/);
   assert.match(html, /EN<\/button>/);
   assert.match(html, /KR<\/button>/);
@@ -125,6 +131,10 @@ test("keeps metadata, locale routes, and responsive surface contracts", async ()
   assert.match(home, /EN<\/button>/);
   assert.match(home, /KR<\/button>/);
   assert.match(home, /contact@awes\.it\.kr/);
+  assert.match(home, /id="quick-start"/);
+  assert.match(home, /scripts\/install\.sh/);
+  assert.match(home, /scripts\/install\.ps1/);
+  assert.match(home, /luthn connect claude/);
   assert.doesNotMatch(home, /window\.localStorage|window\.navigator\.language/);
   assert.match(layout, /metadataBase: new URL\(siteUrl\)/);
   assert.match(layout, /languageAlternates/);

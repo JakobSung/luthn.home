@@ -16,6 +16,29 @@ const copy = {
       ["AUDIT", "Audits memory and decides whether sensitive data may be shared."],
       ["VAULT", "Stores sensitive data separately, without exposing it to agents."],
     ],
+    quickStart: {
+      eyebrow: "QUICK START",
+      heroCta: "Start here",
+      title: "Everything needed to start is on this page.",
+      description: "Install Luthn without cloning the source or opening GitHub. Docker runs the self-hosted memory layer, and one command connects Codex.",
+      requirements: ["Docker + Compose", "No source checkout", "Stable channel"],
+      installLabel: "macOS / Linux",
+      installTitle: "Install and connect Codex",
+      installCommand: "curl -fsSL https://raw.githubusercontent.com/JakobSung/Luthn/main/scripts/install.sh | bash -s -- --channel stable --connect-codex",
+      installNote: "Docker must be running. The installer brings the CLI and source-free Compose runtime together.",
+      verifyLabel: "AFTER INSTALL",
+      verifyTitle: "Check the runtime",
+      verifyCommand: "luthn status\nluthn connection status codex",
+      verifyNote: "When health and readiness are ready, open the operator console at http://127.0.0.1:8080.",
+      windowsLabel: "WINDOWS POWERSHELL",
+      windowsTitle: "Use the same source-free runtime",
+      windowsCommand: "$installer = Join-Path ([IO.Path]::GetTempPath()) \"luthn-install.ps1\"\nirm https://raw.githubusercontent.com/JakobSung/Luthn/main/scripts/install.ps1 -OutFile $installer\npwsh -NoProfile -File $installer -Channel stable -ConnectCodex\nRemove-Item -LiteralPath $installer",
+      windowsNote: "Requires PowerShell 7.4+ and Docker Desktop in Linux container mode.",
+      extraLabel: "OPTIONAL",
+      extraTitle: "Connect another agent",
+      extraCommand: "luthn connect claude\nluthn connection status claude",
+      extraNote: "Codex and Claude Code can share one Luthn installation.",
+    },
     footer: "Safe Context for Agents.",
   },
   ko: {
@@ -30,6 +53,29 @@ const copy = {
       ["AUDIT", "메모리를 감사하고, 민감 데이터의 공유 승인 여부를 결정합니다."],
       ["VAULT", "민감한 데이터는 agent에게 노출되지 않도록 별도로 보관합니다."],
     ],
+    quickStart: {
+      eyebrow: "QUICK START",
+      heroCta: "여기서 시작하기",
+      title: "시작에 필요한 내용은 이 페이지에 모두 담았습니다.",
+      description: "Git clone이나 GitHub 탐색 없이 Luthn을 설치합니다. Docker가 직접 관리하는 memory layer를 실행하고, 한 번의 명령으로 Codex를 연결합니다.",
+      requirements: ["Docker + Compose", "원본 코드 불필요", "Stable 채널"],
+      installLabel: "macOS / Linux",
+      installTitle: "설치하고 Codex 연결하기",
+      installCommand: "curl -fsSL https://raw.githubusercontent.com/JakobSung/Luthn/main/scripts/install.sh | bash -s -- --channel stable --connect-codex",
+      installNote: "Docker가 실행 중이어야 합니다. CLI와 원본 코드 없는 Compose runtime을 함께 설치합니다.",
+      verifyLabel: "설치 후",
+      verifyTitle: "상태 확인",
+      verifyCommand: "luthn status\nluthn connection status codex",
+      verifyNote: "health와 readiness가 ready가 되면 http://127.0.0.1:8080에서 운영자 화면을 엽니다.",
+      windowsLabel: "WINDOWS POWERSHELL",
+      windowsTitle: "같은 원본 코드 없는 runtime 사용",
+      windowsCommand: "$installer = Join-Path ([IO.Path]::GetTempPath()) \"luthn-install.ps1\"\nirm https://raw.githubusercontent.com/JakobSung/Luthn/main/scripts/install.ps1 -OutFile $installer\npwsh -NoProfile -File $installer -Channel stable -ConnectCodex\nRemove-Item -LiteralPath $installer",
+      windowsNote: "PowerShell 7.4 이상과 Linux container mode의 Docker Desktop이 필요합니다.",
+      extraLabel: "선택 사항",
+      extraTitle: "다른 agent 연결",
+      extraCommand: "luthn connect claude\nluthn connection status claude",
+      extraNote: "Codex와 Claude Code를 하나의 Luthn 설치에 함께 연결할 수 있습니다.",
+    },
     footer: "Safe Context for Agents.",
   },
 } as const;
@@ -140,6 +186,10 @@ export default function HomePage({ initialLocale, canonicalPath }: HomePageProps
               <br />
               <span>{c.hero[1]}</span>
             </h1>
+            <a className="home-hero-quick-start" href="#quick-start">
+              <span>{c.quickStart.heroCta}</span>
+              <span aria-hidden="true">↓</span>
+            </a>
           </section>
 
           <section className="memory-atlas-section" aria-labelledby="atlas-title">
@@ -155,6 +205,67 @@ export default function HomePage({ initialLocale, canonicalPath }: HomePageProps
                   <p>{description}</p>
                 </article>
               ))}
+            </div>
+          </section>
+
+          <section className="quick-start-section" id="quick-start" aria-labelledby="quick-start-title">
+            <div className="quick-start-intro">
+              <p className="quick-start-kicker">{c.quickStart.eyebrow}</p>
+              <h2 id="quick-start-title">{c.quickStart.title}</h2>
+              <p>{c.quickStart.description}</p>
+              <ul className="quick-start-requirements" aria-label={c.quickStart.eyebrow}>
+                {c.quickStart.requirements.map((requirement) => <li key={requirement}>{requirement}</li>)}
+              </ul>
+            </div>
+
+            <div className="quick-start-grid">
+              <article className="quick-start-card quick-start-card-install">
+                <div className="quick-start-card-heading">
+                  <span className="quick-start-step">01.</span>
+                  <div>
+                    <p className="quick-start-card-label">{c.quickStart.installLabel}</p>
+                    <h3>{c.quickStart.installTitle}</h3>
+                  </div>
+                </div>
+                <pre><code>{c.quickStart.installCommand}</code></pre>
+                <p className="quick-start-card-note">{c.quickStart.installNote}</p>
+              </article>
+
+              <article className="quick-start-card quick-start-card-verify">
+                <div className="quick-start-card-heading">
+                  <span className="quick-start-step">02.</span>
+                  <div>
+                    <p className="quick-start-card-label">{c.quickStart.verifyLabel}</p>
+                    <h3>{c.quickStart.verifyTitle}</h3>
+                  </div>
+                </div>
+                <pre><code>{c.quickStart.verifyCommand}</code></pre>
+                <p className="quick-start-card-note">{c.quickStart.verifyNote}</p>
+              </article>
+            </div>
+
+            <div className="quick-start-secondary-grid">
+              <details className="quick-start-details">
+                <summary>
+                  <span className="quick-start-card-label">{c.quickStart.windowsLabel}</span>
+                  <span className="quick-start-details-title">{c.quickStart.windowsTitle}</span>
+                  <span className="quick-start-details-icon" aria-hidden="true">+</span>
+                </summary>
+                <pre><code>{c.quickStart.windowsCommand}</code></pre>
+                <p className="quick-start-card-note">{c.quickStart.windowsNote}</p>
+              </details>
+
+              <article className="quick-start-card quick-start-card-extra">
+                <div className="quick-start-card-heading">
+                  <span className="quick-start-step">03.</span>
+                  <div>
+                    <p className="quick-start-card-label">{c.quickStart.extraLabel}</p>
+                    <h3>{c.quickStart.extraTitle}</h3>
+                  </div>
+                </div>
+                <pre><code>{c.quickStart.extraCommand}</code></pre>
+                <p className="quick-start-card-note">{c.quickStart.extraNote}</p>
+              </article>
             </div>
           </section>
         </main>
