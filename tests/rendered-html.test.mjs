@@ -25,10 +25,12 @@ test("server-renders the default Luthn landing page with SEO links", async () =>
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+  assert.equal(response.headers.get("content-language"), "en");
 
   const html = await response.text();
-  assert.match(html, /<title>Luthn — Safe Context for Agents<\/title>/i);
+  assert.match(html, /<title>Luthn — Secure Shared Memory for AI Agents<\/title>/i);
   assert.match(html, /Safe Context for Agents/);
+  assert.match(html, /A secure shared memory layer for AI agents\./);
   assert.match(html, /brand\/luthn-wordmark-white\.svg/);
   assert.match(html, /luthn-memory-atlas\.png/);
   assert.match(html, /SHARED MEMORY/);
@@ -70,12 +72,14 @@ test("renders locale routes with language-specific metadata and content", async 
 
   const englishHtml = await englishResponse.text();
   const koreanHtml = await koreanResponse.text();
-  assert.match(englishHtml, /<title>Luthn — Safe Context for Agents<\/title>/i);
+  assert.match(englishHtml, /<title>Luthn — Secure Shared Memory for AI Agents<\/title>/i);
   assert.match(englishHtml, /class="home-shell locale-en" lang="en"/);
   assert.match(englishHtml, /rel="canonical" href="https:\/\/luthn\.com\/?"/);
-  assert.match(koreanHtml, /<title>Luthn — 에이전트를 위한 안전한 맥락<\/title>/i);
+  assert.equal(koreanResponse.headers.get("content-language"), "ko");
+  assert.match(koreanHtml, /<title>Luthn — AI 에이전트를 위한 안전한 공유 메모리<\/title>/i);
   assert.match(koreanHtml, /class="home-shell locale-ko" lang="ko"/);
-  assert.match(koreanHtml, /여러 agent가 함께 공유하는 승인된 맥락입니다\./);
+  assert.match(koreanHtml, /AI 에이전트를 위한 안전한 공유 메모리\./);
+  assert.match(koreanHtml, /승인된 맥락만 여러 agent에 공유하고/);
   assert.match(koreanHtml, /rel="canonical" href="https:\/\/luthn\.com\/ko"/);
 });
 
