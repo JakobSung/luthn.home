@@ -8,13 +8,18 @@ const copy = {
     languageLabel: "Choose language",
     githubLabel: "Open Luthn on GitHub",
     hero: ["Safe Context", "for Agents"],
-    atlasLabel: "Luthn memory architecture: shared agents, external sources, audit, and a separate vault.",
-    principlesLabel: "Luthn core",
+    atlasLabel:
+      "Luthn secure shared memory architecture for AI agents: approved context, external sources, audit, and a separate encrypted vault.",
+    principlesLabel: "Why Luthn",
+    answerKicker: "WHY LUTHN",
+    answerTitle: "A secure shared memory layer for AI agents.",
+    answerDescription:
+      "Luthn keeps approved context available across agents, while audit and an encrypted vault protect what should stay private.",
     principles: [
-      ["SHARED MEMORY", "Approved context shared across agents."],
-      ["EXTERNAL SOURCES", "Collects external data from messengers, documents, and mail, then remembers it safely."],
-      ["AUDIT", "Audits memory and decides whether sensitive data may be shared."],
-      ["VAULT", "Stores sensitive data separately, without exposing it to agents."],
+      ["SHARED MEMORY", "Stop repeating yourself. Approved context stays available across agents."],
+      ["EXTERNAL SOURCES", "Context is scattered. Luthn gathers useful signals from messengers, documents, and mail."],
+      ["AUDIT", "Sharing needs a check. Audit decides what may cross into shared memory."],
+      ["VAULT", "Sensitive data stays out of agent memory. It is encrypted and stored separately."],
     ],
     quickStart: {
       eyebrow: "[HOW TO]",
@@ -43,14 +48,18 @@ const copy = {
   ko: {
     languageLabel: "언어 선택",
     githubLabel: "GitHub에서 Luthn 열기",
-    hero: ["Safe Context", "for Agents"],
-    atlasLabel: "여러 agent, 외부 소스, 감사, 별도 vault로 구성된 Luthn 메모리 구조",
-    principlesLabel: "Luthn 핵심",
+    hero: ["AI 에이전트를 위한", "안전한 공유 메모리"],
+    atlasLabel: "여러 AI agent, 외부 소스, 감사, 별도 암호화 vault로 구성된 Luthn 공유 메모리 구조",
+    principlesLabel: "Luthn이 필요한 이유",
+    answerKicker: "WHY LUTHN",
+    answerTitle: "AI 에이전트를 위한 안전한 공유 메모리.",
+    answerDescription:
+      "Luthn은 승인된 맥락만 여러 agent에 공유하고, 감사와 암호화 vault로 민감한 데이터는 분리합니다.",
     principles: [
-      ["SHARED MEMORY", "여러 agent가 함께 공유하는 승인된 맥락입니다."],
-      ["EXTERNAL SOURCES", "메신저, 문서, 메일 등 외부 사용 데이터를 수집해 안전하게 기억합니다."],
-      ["AUDIT", "메모리를 감사하고, 민감 데이터의 공유 승인 여부를 결정합니다."],
-      ["VAULT", "민감한 데이터는 agent에게 노출되지 않도록 별도로 보관합니다."],
+      ["SHARED MEMORY", "같은 맥락을 반복해서 설명하지 않아도 됩니다. 승인된 맥락을 여러 agent가 공유합니다."],
+      ["EXTERNAL SOURCES", "정보가 여러 도구에 흩어져도 됩니다. 메신저·문서·메일의 필요한 맥락을 안전하게 모읍니다."],
+      ["AUDIT", "공유 전에 판단합니다. 어떤 메모리가 shared memory로 넘어갈지 감사하고 결정합니다."],
+      ["VAULT", "민감한 데이터는 agent memory가 되지 않습니다. 별도로 암호화해 보관합니다."],
     ],
     quickStart: {
       eyebrow: "[HOW TO]",
@@ -122,6 +131,7 @@ export default function HomePage({ initialLocale, canonicalPath }: HomePageProps
         description: seo.description,
         inLanguage: locale,
         isPartOf: { "@id": `${siteUrl}/#website` },
+        mainEntity: { "@id": `${siteUrl}/#software` },
       },
       {
         "@type": "SoftwareApplication",
@@ -130,6 +140,7 @@ export default function HomePage({ initialLocale, canonicalPath }: HomePageProps
         applicationCategory: "DeveloperApplication",
         operatingSystem: "macOS, Linux, Windows",
         description: seo.description,
+        featureList: c.principles.map(([title, description]) => `${title}: ${description}`),
         url: siteUrl,
         codeRepository: githubUrl,
         license: "https://www.gnu.org/licenses/agpl-3.0.html",
@@ -191,10 +202,17 @@ export default function HomePage({ initialLocale, canonicalPath }: HomePageProps
           </section>
 
           <section className="memory-atlas-section" aria-labelledby="atlas-title">
-            <h2 id="atlas-title" className="sr-only">{c.principlesLabel}</h2>
             <figure className="memory-atlas-figure">
               <img src="/luthn-memory-atlas.png" alt={c.atlasLabel} width={1672} height={941} />
             </figure>
+
+            <div className="memory-answer-intro">
+              <p className="memory-answer-kicker">{c.answerKicker}</p>
+              <div>
+                <h2 id="atlas-title">{c.answerTitle}</h2>
+                <p>{c.answerDescription}</p>
+              </div>
+            </div>
 
             <div className="principles-list" aria-label={c.principlesLabel}>
               {c.principles.map(([title, description]) => (

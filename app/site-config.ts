@@ -14,18 +14,22 @@ export const languageAlternates = {
 
 export const localeSeo = {
   en: {
-    title: "Luthn — Safe Context for Agents",
-    description: "A shared memory layer for agents, with audited context and a separate encrypted vault for sensitive data.",
-    openGraphDescription: "Shared memory for agents, with audited context and a separate encrypted vault for sensitive data.",
+    title: "Luthn — Secure Shared Memory for AI Agents",
+    description:
+      "Luthn is a self-hosted memory layer for AI agents. Share approved context, audit what crosses the boundary, and keep sensitive data in an encrypted vault.",
+    openGraphDescription:
+      "Secure shared memory for AI agents, with audited context and a separate encrypted vault for sensitive data.",
     openGraphLocale: "en_US",
-    imageAlt: "Luthn memory architecture with shared agents, audit, and a separate vault",
+    imageAlt: "Luthn secure shared memory architecture for AI agents with audit and an encrypted vault",
   },
   ko: {
-    title: "Luthn — 에이전트를 위한 안전한 맥락",
-    description: "여러 agent가 공유하는 승인된 맥락, 외부 데이터 수집, 민감 데이터를 분리 보관하는 암호화 vault.",
-    openGraphDescription: "여러 agent가 공유하는 승인된 맥락과 민감 데이터를 분리 보관하는 Luthn 메모리.",
+    title: "Luthn — AI 에이전트를 위한 안전한 공유 메모리",
+    description:
+      "Luthn은 AI 에이전트를 위한 셀프 호스팅 메모리입니다. 승인된 맥락만 공유하고, 민감한 데이터는 암호화 vault에 분리 보관합니다.",
+    openGraphDescription:
+      "여러 AI agent가 공유하는 승인된 맥락과 감사, 민감한 데이터를 분리 보관하는 암호화 vault.",
     openGraphLocale: "ko_KR",
-    imageAlt: "여러 agent와 감사, 별도 vault로 구성된 Luthn 메모리 구조",
+    imageAlt: "여러 AI agent가 공유하는 Luthn 메모리와 감사, 별도 암호화 vault 구조",
   },
 } as const;
 

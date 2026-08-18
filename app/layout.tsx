@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Luthn — Safe Context for Agents",
+    default: "Luthn — Secure Shared Memory for AI Agents",
     template: "%s | Luthn",
   },
   description:
-    "A shared memory layer for agents, with audited context and a separate encrypted vault for sensitive data.",
+    "Luthn is a self-hosted memory layer for AI agents. Share approved context, audit what crosses the boundary, and keep sensitive data in an encrypted vault.",
   keywords: [
     "Luthn",
     "AI agent memory",
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Luthn — Safe Context for Agents",
+    title: "Luthn — Secure Shared Memory for AI Agents",
     description:
-      "Shared memory for agents, with audited context and a separate encrypted vault for sensitive data.",
+      "Secure shared memory for AI agents, with audited context and a separate encrypted vault for sensitive data.",
     siteName: "Luthn",
     locale: "en_US",
     images: [
@@ -50,14 +50,14 @@ export const metadata: Metadata = {
         url: memoryImageUrl,
         width: 1672,
         height: 941,
-        alt: "Luthn memory architecture with shared agents, audit, and a separate vault",
+        alt: "Luthn secure shared memory architecture for AI agents with audit and an encrypted vault",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luthn — Safe Context for Agents",
-    description: "Shared memory for agents, with sensitive data kept in a separate encrypted vault.",
+    title: "Luthn — Secure Shared Memory for AI Agents",
+    description: "Secure shared memory for AI agents, with sensitive data kept in a separate encrypted vault.",
     images: [memoryImageUrl],
   },
   icons: {
